@@ -1,8 +1,7 @@
 const covid19ImpactEstimator = (data) => {
-  debugger;
   const input = data;
   const { reportedCases } = data;
-  const repcase = 2747;
+
   const imapactCurrentlyInfected = reportedCases * 10;
   const severeCurrentlyInfected = reportedCases * 50;
   const impactinfectionsByRequestedTime = imapactCurrentlyInfected * 1024;
