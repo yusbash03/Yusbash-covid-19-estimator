@@ -1,25 +1,16 @@
 const getPeriodType = (periodType) => {
   const getPeriod = periodType.toLowerCase();
   const periodOfTime = 1;
-
-  if (getPeriod === 'days') {
-    return periodOfTime;
-  } else if (getPeriod === 'weeks') {
-    return periodOfTime * 7;
-  } else if (getPeriod === 'months') {
-    return periodOfTime * 30;
+  switch (getPeriod) {
+    case 'days':
+      return periodOfTime;
+    case 'weeks':
+      return periodOfTime * 7;
+    case 'months':
+      return periodOfTime * 30;
+    default:
+      return periodOfTime;
   }
-  return periodOfTime;
-  // switch (getPeriod) {
-  //   case 'days':
-  //     return periodOfTime;
-  //   case 'weeks':
-  //     return periodOfTime * 7;
-  //   case 'months':
-  //     return periodOfTime * 30;
-  //   default:
-  //     return periodOfTime;
-  // }
 };
 
 const covid19ImpactEstimator = (data) => {
@@ -31,7 +22,7 @@ const covid19ImpactEstimator = (data) => {
         avgDailyIncomeInUSD: 5,
         avgDailyIncomePopulation: 0.71
       },
-      periodType: getPeriodType('days', 1),
+      periodType: getPeriodType('days'),
       timeToElapse: 58,
       reportedCases: 674,
       population: 66622705,
