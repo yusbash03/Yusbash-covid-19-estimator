@@ -8,7 +8,8 @@ const getPeriodType = (periodType) => {
     return periodOfTime * 7;
   } else if (getPeriod === 'months') {
     return periodOfTime * 30;
-  } else return periodOfTime;
+  }
+  return periodOfTime;
   // switch (getPeriod) {
   //   case 'days':
   //     return periodOfTime;
