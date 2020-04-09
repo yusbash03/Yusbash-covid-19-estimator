@@ -1,15 +1,26 @@
-const getPeriodType = (periodType, periodOfTime) => {
+const getPeriodType = (periodType) => {
   const getPeriod = periodType.toLowerCase();
-  switch (getPeriod) {
-    case 'days':
-      return periodOfTime;
-    case 'weeks':
-      return periodOfTime * 7;
-    case 'months':
-      return periodOfTime * 30;
-    default:
-      return periodOfTime;
+  const periodOfTime = 1;
+
+  if (getPeriod == 'days') {
+    return periodOfTime;
+  } else if (getPeriod == 'weeks') {
+    return periodOfTime * 7;
+  } else if (getPeriod == 'months') {
+    return periodOfTime * 30;
+  } else {
+    return periodOfTime;
   }
+  // switch (getPeriod) {
+  //   case 'days':
+  //     return periodOfTime;
+  //   case 'weeks':
+  //     return periodOfTime * 7;
+  //   case 'months':
+  //     return periodOfTime * 30;
+  //   default:
+  //     return periodOfTime;
+  // }
 };
 
 const covid19ImpactEstimator = (data) => {
@@ -36,19 +47,7 @@ const covid19ImpactEstimator = (data) => {
   const severeinfectionsByRequestedTime = severeCurrentlyInfected * 1024;
 
   return {
-    data: {
-      region: {
-        name: 'Africa',
-        avgAge: 19.7,
-        avgDailyIncomeInUSD: 5,
-        avgDailyIncomePopulation: 0.71
-      },
-      periodType: getPeriodType('days', 1),
-      timeToElapse: 58,
-      reportedCases: 674,
-      population: 66622705,
-      totalHospitalBeds: 1380614
-    },
+    data: input,
     impact: {
       currentlyInfected: imapactCurrentlyInfected,
       infectionsByRequestedTime: impactinfectionsByRequestedTime
