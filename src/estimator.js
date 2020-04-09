@@ -14,27 +14,17 @@ const getPeriodType = (periodType) => {
 };
 
 const covid19ImpactEstimator = (data) => {
-  const input = {
-    data: {
-      region: {
-        name: 'Africa',
-        avgAge: 19.7,
-        avgDailyIncomeInUSD: 5,
-        avgDailyIncomePopulation: 0.71
-      },
-      periodType: getPeriodType('days'),
-      timeToElapse: 58,
-      reportedCases: 674,
-      population: 66622705,
-      totalHospitalBeds: 1380614
-    }
-  };
+  const input = data;
   const { reportedCases } = data;
 
-  const imapactCurrentlyInfected = reportedCases * 10;
-  const severeCurrentlyInfected = reportedCases * 50;
-  const impactinfectionsByRequestedTime = imapactCurrentlyInfected * 1024;
-  const severeinfectionsByRequestedTime = severeCurrentlyInfected * 1024;
+  const imapactCurrentlyInfected = Math.trunc(reportedCases * 10);
+  const severeCurrentlyInfected = Math.trunc(reportedCases * 50);
+  const impactinfectionsByRequestedTime = Math.trunc(
+    imapactCurrentlyInfected * 1024
+  );
+  const severeinfectionsByRequestedTime = Math.trunc(
+    severeCurrentlyInfected * 1024
+  );
 
   return {
     data: input,
