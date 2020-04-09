@@ -2,14 +2,12 @@ const getPeriodType = (periodType) => {
   const getPeriod = periodType.toLowerCase();
   const periodOfTime = 1;
 
-  if (getPeriod == 'days') {
+  if (getPeriod === 'days') {
     return periodOfTime;
-  } else if (getPeriod == 'weeks') {
+  } else if (getPeriod === 'weeks') {
     return periodOfTime * 7;
-  } else if (getPeriod == 'months') {
+  } else if (getPeriod === 'months') {
     return periodOfTime * 30;
-  } else {
-    return periodOfTime;
   }
   // switch (getPeriod) {
   //   case 'days':
