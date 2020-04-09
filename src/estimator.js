@@ -1,3 +1,17 @@
+const getPeriodType = (periodType, periodOfTime) => {
+  const getPeriod = periodType.toLowerCase();
+  switch (getPeriod) {
+    case 'days':
+      return periodOfTime;
+    case 'weeks':
+      return periodOfTime * 7;
+    case 'months':
+      return periodOfTime * 30;
+    default:
+      return periodOfTime;
+  }
+};
+
 const covid19ImpactEstimator = (data) => {
   const input = {
     data: {
@@ -7,7 +21,7 @@ const covid19ImpactEstimator = (data) => {
         avgDailyIncomeInUSD: 5,
         avgDailyIncomePopulation: 0.71
       },
-      periodType: 'months',
+      periodType: getPeriodType('days', 1),
       timeToElapse: 58,
       reportedCases: 674,
       population: 66622705,
